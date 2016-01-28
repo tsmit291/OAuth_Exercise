@@ -4,4 +4,19 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    div.login
+      if name !== ""
+        a.logout(href='/auth/logout') Log Out     
+      else
+        a.login(href='/auth/linkedin') Log In with LinkedIn 
+    br
     block content
+    div.verifications
+      if name !== ""
+        p
+        | Welcome, #{name}
+      else
+        p You're not logged in!
+      
+    
+        
