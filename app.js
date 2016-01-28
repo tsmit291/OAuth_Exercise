@@ -9,8 +9,8 @@ var session = require('cookie-session');
 var passport = require('passport');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var auth = require('./routes/auth');
 var LinkedInStrategy = require('passport-linkedin').Strategy
-
 var app = express();
 
 // view engine setup
@@ -44,6 +44,7 @@ passport.deserializeUser(function(user, done){
 });
 app.use('/', routes);
 app.use('/users', users);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
